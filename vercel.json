@@ -6,6 +6,5 @@
   "outputDirectory": "dist",
   "env": {
     "NODE_ENV": "production"
-  },
-  "envPrefix": "VITE_"
+  }
 }
