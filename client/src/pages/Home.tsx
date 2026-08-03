@@ -35,18 +35,18 @@ export default function Home() {
       <nav className="sticky top-0 z-50 glass border-b">
         <div className="container flex items-center justify-between py-4">
           <div className="flex items-center gap-8">
-            <Link href="/">
-              <a className="text-2xl font-bold text-gradient">DigitalHub</a>
+            <Link href="/" className="text-2xl font-bold text-gradient">
+              DigitalHub
             </Link>
             <div className="hidden md:flex gap-6">
-              <Link href="#products">
-                <a className="text-sm font-medium hover:text-accent transition">Produtos</a>
+              <Link href="#products" className="text-sm font-medium hover:text-accent transition">
+                Produtos
               </Link>
-              <Link href="#categories">
-                <a className="text-sm font-medium hover:text-accent transition">Categorias</a>
+              <Link href="#categories" className="text-sm font-medium hover:text-accent transition">
+                Categorias
               </Link>
-              <Link href="/faq">
-                <a className="text-sm font-medium hover:text-accent transition">FAQ</a>
+              <Link href="/faq" className="text-sm font-medium hover:text-accent transition">
+                FAQ
               </Link>
             </div>
           </div>
@@ -54,15 +54,11 @@ export default function Home() {
           <div className="flex items-center gap-4">
             {isAuthenticated ? (
               <>
-                <Link href="/dashboard">
-                  <a className="p-2 hover:bg-muted rounded-lg transition">
-                    <ShoppingCart className="w-5 h-5" />
-                  </a>
+                <Link href="/dashboard" className="p-2 hover:bg-muted rounded-lg transition">
+                  <ShoppingCart className="w-5 h-5" />
                 </Link>
-                <Link href="/profile">
-                  <a className="text-sm font-medium hover:text-accent transition">
-                    {user?.name || "Perfil"}
-                  </a>
+                <Link href="/profile" className="text-sm font-medium hover:text-accent transition">
+                  {user?.name || "Perfil"}
                 </Link>
               </>
             ) : (
@@ -173,16 +169,14 @@ export default function Home() {
 
           <div className="grid md:grid-cols-4 gap-6">
             {categories?.map((category) => (
-              <Link key={category.id} href={`/category/${category.slug}`}>
-                <a className="group">
-                  <Card className="card-premium h-32 flex items-center justify-center cursor-pointer">
-                    <div className="text-center">
-                      <p className="font-semibold group-hover:text-accent transition">
-                        {category.name}
-                      </p>
-                    </div>
-                  </Card>
-                </a>
+              <Link key={category.id} href={`/category/${category.slug}`} className="group">
+                <Card className="card-premium h-32 flex items-center justify-center cursor-pointer">
+                  <div className="text-center">
+                    <p className="font-semibold group-hover:text-accent transition">
+                      {category.name}
+                    </p>
+                  </div>
+                </Card>
               </Link>
             ))}
           </div>
@@ -264,21 +258,21 @@ export default function Home() {
             <div>
               <p className="font-semibold mb-4">Links Rápidos</p>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link href="/faq"><a className="hover:text-accent transition">FAQ</a></Link></li>
-                <li><Link href="/contact"><a className="hover:text-accent transition">Contato</a></Link></li>
+                <li><Link href="/faq" className="hover:text-accent transition">FAQ</Link></li>
+                <li><Link href="/contact" className="hover:text-accent transition">Contato</Link></li>
               </ul>
             </div>
             <div>
               <p className="font-semibold mb-4">Legal</p>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link href="/terms"><a className="hover:text-accent transition">Termos</a></Link></li>
-                <li><Link href="/privacy"><a className="hover:text-accent transition">Privacidade</a></Link></li>
+                <li><Link href="/terms" className="hover:text-accent transition">Termos</Link></li>
+                <li><Link href="/privacy" className="hover:text-accent transition">Privacidade</Link></li>
               </ul>
             </div>
             <div>
               <p className="font-semibold mb-4">Suporte</p>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link href="/tickets"><a className="hover:text-accent transition">Tickets</a></Link></li>
+                <li><Link href="/tickets" className="hover:text-accent transition">Tickets</Link></li>
                 <li><a href="mailto:support@digitalhub.com" className="hover:text-accent transition">Email</a></li>
               </ul>
             </div>
