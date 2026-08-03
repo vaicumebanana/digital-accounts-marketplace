@@ -4,15 +4,8 @@
   "installCommand": "corepack pnpm install",
   "framework": "vite",
   "outputDirectory": "dist",
-  "nodeVersion": "22.x",
   "env": {
     "NODE_ENV": "production"
   },
-  "envPrefix": "VITE_",
-  "functions": {
-    "server/_core/index.ts": {
-      "runtime": "nodejs22.x",
-      "maxDuration": 60
-    }
-  }
+  "envPrefix": "VITE_"
 }
