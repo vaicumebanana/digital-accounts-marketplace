@@ -43,7 +43,9 @@
     --ring: 264 80% 60%;
   }
 
-
+  * {
+    @apply border-border;
+  }
 
   body {
     @apply bg-background text-foreground;
@@ -59,7 +61,7 @@
 @layer components {
   /* Premium glassmorphism effect */
   .glass {
-    @apply backdrop-blur-md bg-white/10 dark:bg-white/5 border border-white/20 dark:border-white/10 border-solid;
+    @apply backdrop-blur-md bg-white/10 dark:bg-white/5 border border-white/20 dark:border-white/10;
   }
 
   .glass-card {
