@@ -1,16 +1,28 @@
 import { useAuth } from "@/_core/hooks/useAuth";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ButtonWithLoading";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { trpc } from "@/lib/trpc";
 import { startLogin } from "@/const";
-import { Loader2, Search, ShoppingCart, Heart, Zap, Shield, Truck, Star } from "lucide-react";
+import { Search, ShoppingCart, Heart, Zap, Shield, Truck, Star } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
 
 export default function Home() {
   const { user, isAuthenticated } = useAuth();
   const [searchQuery, setSearchQuery] = useState("");
+  const [loadingButton, setLoadingButton] = useState<string | null>(null);
+
+  const handleButtonClick = async (buttonId: string, callback: () => void) => {
+    setLoadingButton(buttonId);
+    try {
+      callback();
+      // Simulate async operation
+      await new Promise(resolve => setTimeout(resolve, 500));
+    } finally {
+      setLoadingButton(null);
+    }
+  };
 
   // Fetch data
   const { data: categories } = trpc.products.getCategories.useQuery();
@@ -85,10 +97,20 @@ export default function Home() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="btn-premium gradient-primary text-white">
+                <Button 
+                  variant="primary" 
+                  size="lg"
+                  isLoading={loadingButton === 'explore'}
+                  onClick={() => handleButtonClick('explore', () => {})}
+                >
                   Explorar Produtos
                 </Button>
-                <Button variant="outline" className="btn-premium">
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  isLoading={loadingButton === 'learn'}
+                  onClick={() => handleButtonClick('learn', () => {})}
+                >
                   Saber Mais
                 </Button>
               </div>
@@ -201,7 +223,9 @@ export default function Home() {
 
           {searchQuery && (
             <div className="text-center py-12">
-              <Loader2 className="w-8 h-8 animate-spin mx-auto text-muted-foreground" />
+              <div className="inline-block">
+                <div className="w-8 h-8 border-4 border-gray-300 border-t-blue-600 rounded-full animate-spin mx-auto" />
+              </div>
               <p className="text-muted-foreground mt-4">Buscando produtos...</p>
             </div>
           )}
@@ -236,8 +260,10 @@ export default function Home() {
               Junte-se a milhares de clientes satisfeitos e acesse suas contas premium agora mesmo
             </p>
             <Button
-              onClick={() => isAuthenticated ? undefined : startLogin()}
-              className="btn-premium gradient-primary text-white"
+              variant="primary"
+              size="lg"
+              isLoading={loadingButton === 'cta'}
+              onClick={() => handleButtonClick('cta', () => isAuthenticated ? undefined : startLogin())}
             >
               {isAuthenticated ? "Ir para Loja" : "Criar Conta Agora"}
             </Button>
