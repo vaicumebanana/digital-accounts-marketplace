@@ -1,0 +1,17 @@
+.git
+.gitignore
+.manus-logs
+.manus
+node_modules
+pnpm-lock.yaml
+README.md
+todo.md
+.env.local
+.env.*.local
+*.log
+dist
+build
+.DS_Store
+.vscode
+.idea
+patches
