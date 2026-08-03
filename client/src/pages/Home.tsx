@@ -215,7 +215,7 @@ export default function Home() {
       </section>
 
       {/* Trust Badges */}
-      <section className="py-12 border-t border-b border-border">
+      <section className="py-12 border-t border-b border-gray-200 dark:border-gray-800">
         <div className="container">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             {[
@@ -252,7 +252,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-card border-t border-border py-12">
+      <footer className="bg-card border-t border-gray-200 dark:border-gray-800 py-12">
         <div className="container">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
@@ -284,7 +284,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground">
+          <div className="border-t border-gray-200 dark:border-gray-800 pt-8 text-center text-sm text-muted-foreground">
             <p>&copy; 2024 DigitalHub. Todos os direitos reservados.</p>
           </div>
         </div>

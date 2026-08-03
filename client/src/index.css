@@ -43,9 +43,7 @@
     --ring: 264 80% 60%;
   }
 
-  * {
-    @apply border-border;
-  }
+
 
   body {
     @apply bg-background text-foreground;
@@ -123,12 +121,12 @@
 
   /* Premium card */
   .card-premium {
-    @apply rounded-xl border border-border bg-card p-6 shadow-md transition-all duration-300 hover:shadow-lg hover:border-accent/50;
+    @apply rounded-xl border border-gray-200 dark:border-gray-800 bg-card p-6 shadow-md transition-all duration-300 hover:shadow-lg;
   }
 
   /* Section divider with glassmorphism */
   .section-divider {
-    @apply relative my-12 h-px bg-gradient-to-r from-transparent via-border to-transparent;
+    @apply relative my-12 h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-700 to-transparent;
   }
 
   /* Text utilities */
