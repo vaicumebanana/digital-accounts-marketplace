@@ -2,7 +2,7 @@
   "buildCommand": "pnpm run build",
   "devCommand": "pnpm run dev",
   "installCommand": "corepack pnpm install",
-  "framework": "vite",
+  "framework": null,
   "outputDirectory": "dist",
   "env": {
     "NODE_ENV": "production"
